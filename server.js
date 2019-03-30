@@ -14,9 +14,28 @@ app.get('/api/v1/spaces', (request, response) => {
     .catch(error => {
       response.status(500).json({error});
     });
-})
+});
 
+app.post('/api/v1/vehicles', (request, response) => {
+  const vehicle = request.body;
+
+  for (let requiredParameter of ['size']) {
+    if (!vehicle[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `You're missing a "${requiredParameter}" property.`});
+    }
+  }
+
+  database('vehicles').insert(vehicle, 'id')
+    .then(vehicle => {
+      response.status(201).json({ id: vehicle[0]});
+    })
+    .catch(error => {
+      response.status(500).json({ error });
+    });
+});
 
 app.listen(5000, () => {
   console.log('app is listening on port 5000');
-})
+});
