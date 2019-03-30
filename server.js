@@ -16,6 +16,16 @@ app.get('/api/v1/spaces', (request, response) => {
     });
 });
 
+app.get('/api/v1/vehicles', (request, response) => {
+  database('vehicles').select()
+    .then((vehicles) => {
+      response.status(200).json(vehicles);
+    })
+    .catch(error => {
+      response.status(500).json({error});
+    });
+});
+
 app.post('/api/v1/vehicles', (request, response) => {
   const vehicle = request.body;
 
@@ -50,7 +60,7 @@ app.patch('/api/v1/spaces/:id', (request, response) => {
   }
 
   database('spaces').where({ id: request.params.id }).update(request.body).returning('*').then((space) => {
-    response.status(201).json(space);
+    response.status(200).json(space);
   })
   .catch(error => {
     response.status(500).json({ error });
@@ -70,12 +80,25 @@ app.put('/api/v1/spaces/:id', (request, response) => {
   }
 
   database('spaces').where({ id: request.params.id }).update(request.body).returning('*').then((space) => {
-    response.status(201).json(space);
+    response.status(200).json(space);
   })
   .catch(error => {
     response.status(500).json({ error });
   });
 });
+
+app.delete('/api/v1/vehicles/:id', (request, response) => {
+  database('vehicles')
+  .select()
+  .where('id', request.params.id)
+  .del()
+  .then(() => {
+    return response.sendStatus(202)
+  })
+  .catch(error => {
+    return response.status(500).send({ error });
+  })
+})
 
 app.listen(5000, () => {
   console.log('app is listening on port 5000');
