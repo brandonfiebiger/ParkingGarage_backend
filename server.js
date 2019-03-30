@@ -36,6 +36,47 @@ app.post('/api/v1/vehicles', (request, response) => {
     });
 });
 
+
+app.patch('/api/v1/spaces/:id', (request, response) => {
+
+  const space = request.body;
+
+  for (let requiredParameter of ['vehicle_id']) {
+    if (!space[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `You're missing a "${requiredParameter}" property.`});
+    }
+  }
+
+  database('spaces').where({ id: request.params.id }).update(request.body).returning('*').then((space) => {
+    response.status(201).json(space);
+  })
+  .catch(error => {
+    response.status(500).json({ error });
+  })
+})
+
+app.put('/api/v1/spaces/:id', (request, response) => {
+
+  const space = request.body;
+
+  for (let requiredParameter of ['size', 'row', 'level']) {
+    if (!space[requiredParameter]) {
+      return response
+        .status(422)
+        .send({ error: `You're missing a "${requiredParameter}" property.`});
+    }
+  }
+
+  database('spaces').where({ id: request.params.id }).update(request.body).returning('*').then((space) => {
+    response.status(201).json(space);
+  })
+  .catch(error => {
+    response.status(500).json({ error });
+  });
+});
+
 app.listen(5000, () => {
   console.log('app is listening on port 5000');
 });
