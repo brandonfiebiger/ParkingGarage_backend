@@ -4,9 +4,9 @@
 
 * `Git clone` the repo
 * install postgres if you havent already
-*`psql CREATE DATABASE state_of_parking_garage`
-*`npm install`
-*`node server.js`
+* run`psql CREATE DATABASE state_of_parking_garage`
+* run`npm install` from root directory
+* run`node server.js` and app should be running on localhost:5000
 
 
 
