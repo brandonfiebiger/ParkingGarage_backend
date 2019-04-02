@@ -74,5 +74,107 @@ Example Response:
 ]
 ```
 
+### POST
+
+Create a new vehicle ```/api/v1/vehicles```
+
+Example Request:
+```
+{
+   "size": "small"
+}
+```
+
+Example Response:
+
+```
+{
+    "id": 64
+}
+```
+
+### PATCH
+
+Add a vehicle to parking space```/api/v1/spaces/:id```
+
+Example Request:
+```
+{
+   "vehicle_id": 64
+}
+```
+
+Example Response:
+
+```
+[
+    {
+        "id": 383,
+        "size": "medium",
+        "row": 10,
+        "level": 3,
+        "vehicle_id": 64,
+        "created_at": "2019-04-01T01:45:02.072Z",
+        "updated_at": "2019-04-01T01:45:02.072Z"
+    }
+]
+```
+
+### PUT
+
+Remove vehicle from parking space```/api/v1/spaces/:id```
+
+Example Request:
+```
+{
+        "size": "medium",
+        "row": 10,
+        "level": 3,
+        "vehicle_id": null
+}
+```
+
+Example Response:
+
+```
+[
+    {
+        "id": 383,
+        "size": "medium",
+        "row": 10,
+        "level": 3,
+        "vehicle_id": null,
+        "created_at": "2019-04-01T01:45:02.072Z",
+        "updated_at": "2019-04-01T01:45:02.072Z"
+    }
+]
+```
+
+### DELETE
+
+Remove vehicle from database```/api/v1/vehicles/:id```
+
+Example Response:
+
+```
+success
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
