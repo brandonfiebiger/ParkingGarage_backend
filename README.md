@@ -47,5 +47,32 @@ Example Response:
 ]
 ```
 
+Get all vehicles ```/api/v1/vehicles```
+
+Example Response:
+
+```
+[
+    {
+        "id": 59,
+        "size": "large",
+        "created_at": "2019-04-01T19:42:29.547Z",
+        "updated_at": "2019-04-01T19:42:29.547Z"
+    },
+    {
+        "id": 61,
+        "size": "large",
+        "created_at": "2019-04-01T21:16:40.841Z",
+        "updated_at": "2019-04-01T21:16:40.841Z"
+    },
+    {
+        "id": 62,
+        "size": "large",
+        "created_at": "2019-04-01T21:17:02.958Z",
+        "updated_at": "2019-04-01T21:17:02.958Z"
+    }
+]
+```
+
 
 
