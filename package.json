@@ -1,0 +1,28 @@
+{
+  "name": "ParkingGarage_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "knexfile.js",
+  "dependencies": {
+    "pg": "^7.9.0"
+  },
+  "devDependencies": {
+    "express": "^4.16.4",
+    "knex": "^0.16.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonfiebiger/ParkingGarage_backend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandonfiebiger/ParkingGarage_backend/issues"
+  },
+  "homepage": "https://github.com/brandonfiebiger/ParkingGarage_backend#readme"
+}
